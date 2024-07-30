@@ -79,17 +79,17 @@ jobs:
 
   # Deployment job
       - name: Deploy via SSH
-          uses: appleboy/ssh-action@v0.1.9
-          with:
-            host: ${{ secrets.AWS_HOST }}
-            username: ${{ secrets.AWS_USERNAME }}
-            key: ${{ secrets.AWS_SSH_KEY }}
-            script: |
-              sudo -i
-              cd /var/www/ui/nuxtjs_CICD
-              git pull origin dev
-              npm install
-              npm cache verify
-              npm run build
-              pm2 restart 0
-              sudo systemctl restart nginx
+        uses: appleboy/ssh-action@v0.1.9
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USERNAME }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            sudo -i
+            cd /var/www/ui/nuxtjs_CICD
+            git pull origin dev
+            npm install
+            npm cache verify
+            npm run build
+            pm2 restart 0
+            sudo systemctl restart nginx
