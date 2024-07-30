@@ -84,7 +84,7 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
-          script: |
+          run: |
             sudo -i
             cd /var/www/ui/nuxtjs_CICD
             git pull origin dev
