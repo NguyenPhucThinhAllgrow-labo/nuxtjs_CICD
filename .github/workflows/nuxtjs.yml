@@ -85,11 +85,10 @@ jobs:
           username: ${{ secrets.AWS_USERNAME }}
           key: ${{ secrets.AWS_SSH_KEY }}
           run: |
-            sudo -i
-            cd /var/www/ui/nuxtjs_CICD
-            git pull origin dev
-            npm install
-            npm cache verify
-            npm run build
-            pm2 restart 0
+            sudo cd /var/www/ui/nuxtjs_CICD
+            sudo git pull origin dev
+            sudo npm install
+            sudo npm cache verify
+            sudo npm run build
+            sudo pm2 restart 0
             sudo systemctl restart nginx
